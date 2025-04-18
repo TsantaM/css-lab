@@ -1,0 +1,28 @@
+/* Animations preview */
+#section1 {
+  .loader-anim {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+
+    .dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5vw;
+        .dot {
+          width: 3vw;
+          height: 3vw;
+          border-radius: 50%;
+          background: hsl(var(--primary));
+        }
+    
+        .dot-shadow {
+          background: hsl(var(--destructive));
+          width: 3vw;
+          height: 3vw;
+          border-radius: 50%;
+        }
+      }
+  }
+}

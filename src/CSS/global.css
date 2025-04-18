@@ -1,0 +1,299 @@
+@import url('./theme.css');
+
+@font-face {
+  font-family: title;
+  src: url(/fonts/Quicksand-Bold.ttf);
+}
+@font-face {
+  font-family: content;
+  src: url(/fonts/Quicksand-Regular.ttf);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: content;
+}
+
+/* Globals componnents css design */
+
+.button {
+    cursor: pointer;
+    padding: 1em;
+    font-size: var(--btn-font-size);
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: content;
+
+    svg {
+        cursor: pointer;
+    }
+}
+
+.primary {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+
+    a {
+        color: hsl(var(--primary-foreground));
+    }
+}
+
+.secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+
+    a {
+        color: hsl(var(--secondary-forground));
+    }
+}
+
+.destructive {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+
+    a {
+        color: hsl(var(--destructive-foreground));
+    }
+}
+
+.ghost {
+    background: none;
+    padding: 0;
+    color: hsl(var(--foreground));
+    svg, a, img {
+        color: hsl(var(--foreground));
+        cursor: pointer;
+    }
+}
+
+/* Inputs style */
+
+.input_form {
+    cursor: text;
+    padding: 0.75em 1em;
+    border-radius: var(--radius);
+    background: hsl(var(--input));
+    color:  hsl(var(--accent-foreground));
+    border: solid 3px hsl(var(--accent-foreground));
+    outline: none;
+    font-size: 1rem;
+    font-family: content;
+}
+
+.input_form::placeholder {
+    /* color: hsl(var(--accent-foreground)); */
+    font-family: content;
+}
+
+
+.textarea {
+    cursor: text;
+    padding: 0.75em 1em;
+    border-radius: var(--radius);
+    background: hsl(var(--background));
+    color:  hsl(var(--accent-foreground));
+    border: solid 3px hsl(var(--accent-foreground));
+    background: hsl(var(--input));
+    outline: none;
+    font-size: 1rem;
+    resize: none;
+    font-family: content;
+}
+
+.textarea::placeholder {
+    /* color: hsl(var(--accent-foreground)); */
+    font-family: content;
+}
+
+
+/* Font families */
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h6 {
+  font-family: title;
+  color: hsl(var(--primary));
+}
+
+p, li, span {
+  font-family: content;
+}
+
+/* header defautl design */
+
+header {
+    .mini-menu {
+        padding: 1vw;
+        background: hsl(var(--primary));
+        position: fixed;
+        z-index: 10;
+        right: 1vw;
+        bottom: 1vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 2vw;
+        border-radius: 2vw;
+        li {
+            button {
+                svg  {
+                    stroke: hsl(var(--primary-foreground));
+                }
+            }
+            a {
+                color: hsl(var(--primary-foreground));
+                cursor: pointer;
+                svg {
+                    cursor: pointer;
+                }
+            }
+
+            button:hover , a:hover {
+                svg {
+                    color: hsl(var(--background));
+                    stroke: hsl(var(--background));
+                }
+            }
+        }
+    }
+
+    .nav-menu {
+        display: none;
+        padding: 5vw;
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: hsl(var(--secondary));
+        align-items: center;
+        .big-ul {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            gap: 5vw;
+            li {
+                a {
+                    color: hsl(var(--secondary-foreground));
+                    text-decoration: none;
+                    /* font-size: 2rem; */
+                }
+            }
+            .li-header {
+                a {
+                    font-family: title;
+                }
+            }
+
+            .under-ul {
+                display: flex;
+                flex-direction: column;
+                gap: 1vw;
+
+            }
+        }
+    }
+
+    .active_nav {
+        display: flex;
+    }
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Global componnents responsive */
+/* -------------- TABLETTE -------------- */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    header {
+        .mini-menu {
+            padding: 2vw;
+            /* flex-direction: row; */
+            gap: 5vw;
+            top: 5vw;
+            right: 2vw;
+            bottom: initial;
+            border-radius: 5vw;
+            li {
+                button {
+                    svg {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+        }
+
+        .nav-menu {
+            ul {
+                gap: 10vw;
+                display: flex;
+                flex-direction: column;
+                li {
+                    a {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+    header {
+        .mini-menu {
+            padding: 2vw 3vw;
+            /* flex-direction: row; */
+            gap: 5vw;
+            top: 5vw;
+            right: 2vw;
+            bottom: initial;
+            border-radius: 5vw;
+            li {
+                button {
+                    svg {
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+
+        .nav-menu {
+            ul {
+                gap: 15vw;
+                display: flex;
+                flex-direction: column;
+                li {
+                    a {
+                        font-size: 3rem;
+                    }
+                }
+            }
+        }
+    }
+}
